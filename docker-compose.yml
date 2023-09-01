@@ -1,0 +1,12 @@
+version: '3.4'
+services:
+  api:
+    container_name: "summary_api"
+    volumes:
+      - ./app:/app
+      - ./output:/output
+    build: 
+      context: .
+      network: host
+    ports:
+      - 8080:8080
