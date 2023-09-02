@@ -33,6 +33,25 @@ RUN pip install -q dill==0.3.3
 RUN pip install -q git+https://github.com/boudinfl/pke.git
 RUN pip install -q nltk
 RUN pip install -q -U spacy
+
+
+# Update default packages
+RUN apt-get update
+
+# Get Ubuntu packages
+RUN apt-get install -y \
+    build-essential \
+    curl
+
+# Update new packages
+RUN apt-get update
+
+# Get Rust
+RUN curl https://sh.rustup.rs -sSf | bash -s -- -y
+
+ENV PATH="/root/.cargo/bin:${PATH}"
+
+
 RUN pip install -q -U ginza ja_ginza_electra
 RUN pip install -q spacy==3.4.4
 RUN pip install -q protobuf==3.20.1
