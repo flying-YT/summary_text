@@ -19,8 +19,8 @@ class Source(BaseModel):
     base_text: str
 
 # トークナイザーとモデルの準備
-tokenizer = AutoTokenizer.from_pretrained('sonoisa/t5-base-japanese')
-model = AutoModelForSeq2SeqLM.from_pretrained('/output/')
+#tokenizer = AutoTokenizer.from_pretrained('sonoisa/t5-base-japanese')
+#model = AutoModelForSeq2SeqLM.from_pretrained('/output/')
 
 app = FastAPI()
 
@@ -51,7 +51,7 @@ async def handler(request:Request, exc:RequestValidationError):
 
 @app.get("/")
 def index():
-    f = open('log.txt', 'get')
+    f = open('log.txt', 'w')
     f.write('get')
     f.close()
     return {'summary_text':'hello'}

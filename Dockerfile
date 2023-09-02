@@ -68,7 +68,7 @@ RUN apt-get install -y iputils-ping net-tools dnsutils
 COPY ./app/ .
 COPY ./output/ .
 
-RUN python t5_base_japanese.py
-RUN python ginza-510.py
+#RUN python t5_base_japanese.py
+#RUN python ginza-510.py
 
 CMD ["uvicorn", "main:app", "--reload", "--host", "0.0.0.0", "--port", "8080"]
